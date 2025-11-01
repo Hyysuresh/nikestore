@@ -4,14 +4,14 @@ metadata:
   name: nikeapp
   namespace: argocd
 spec:
-  project: my-app
+  project: default
   source:
     repoURL: https://github.com/Hyysuresh/nikestore.git
     targetRevision: master
     path: k8s/
   destination:
     server:  https://172.31.20.0:33893
-    namespace: default 
+    namespace: my-app
   syncPolicy:
     automated:
       prune: true
