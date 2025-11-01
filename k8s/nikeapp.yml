@@ -4,7 +4,7 @@ metadata:
   name: nikeapp
   namespace: argocd
 spec:
-  project: default
+  project: my-app
   source:
     repoURL: https://github.com/Hyysuresh/nikestore.git
     targetRevision: master
