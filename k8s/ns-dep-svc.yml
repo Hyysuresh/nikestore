@@ -1,0 +1,47 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: nikeapp
+---
+kind: Deployment 
+apiVersion: apps/v1
+metadata:
+  name: nike-deployment 
+  namespace: nikeapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+        app: nike
+  template:
+    metadata:
+      labels:
+        app: nike
+    spec:
+      containers:
+          - name: nike
+            image: hyysuresh/nikeapp:latest
+            ports:
+              - containerPort: 3000
+            resources:
+              requests:
+                memory: "128Mi"
+                cpu: "125m"
+              limits:
+                memory: "256Mi"
+                cpu: "500m"
+            
+---
+kind: Service 
+apiVersion: v1 
+metadata:
+  name: nike-service
+  namespace: nikeapp 
+spec:
+  selector:
+    app: nike 
+  ports:
+    - protocol: TCP 
+      port: 3000
+      targetPort: 3000
+
