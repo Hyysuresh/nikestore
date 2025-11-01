@@ -12,7 +12,7 @@ spec:
   destination:
     server:  https://172.31.20.0:33893
     namespace: default 
-  syncpolicy:
+  syncPolicy:
     automated:
       prune: true
       selfHeal: true
